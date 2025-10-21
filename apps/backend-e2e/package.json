@@ -1,0 +1,26 @@
+{
+  "name": "@mamma-knee/backend-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@mamma-knee/backend"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/backend-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@mamma-knee/backend:build",
+          "@mamma-knee/backend:serve"
+        ]
+      }
+    }
+  }
+}
